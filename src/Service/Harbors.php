@@ -15,7 +15,21 @@ class Harbors
     {
         $harborsJson = $this->apiClient->fetch('https://devapi.harba.co/harbors/visible');
 
-        $harbors = json_decode($harborsJson, true);
+        $harborsFromApi = json_decode($harborsJson, true);
+
+        $harbors = [];
+
+        foreach ($harborsFromApi as $harborFromApi) {
+            $harbor = [];
+            $harbor['name'] = $harborFromApi['name'];
+            if (isset($harborFromApi['image'])) {
+                $harbor['image'] = $harborFromApi['image'];
+            }
+
+            $harbor['weather'] = 'todo';
+
+            $harbors[] = $harbor;
+        }
 
         return $harbors;
     }
