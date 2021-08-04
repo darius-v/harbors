@@ -1,7 +1,4 @@
-.PHONY: start stop init build tests
-
-#include .env
-#export $(shell sed 's/=.*//' .env)
+.PHONY: start stop init tests
 
 start:
 	docker-compose up -d
@@ -13,9 +10,6 @@ init:
 	docker-compose build
 	docker-compose up -d
 	docker-compose exec php composer install
-
-build:
-	build/build.sh
 
 tests:
 	docker-compose exec php vendor/bin/phpunit
