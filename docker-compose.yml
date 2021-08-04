@@ -11,8 +11,7 @@ services:
       # edn for xdebug
     working_dir: /app
     container_name: harbors_php
-    depends_on:
-      - mysql
+
 
   nginx:
     image: nginx:1.15.0
@@ -25,13 +24,3 @@ services:
     depends_on:
       - php
 
-  mysql:
-    image: mysql:8.0
-    volumes:
-      - ./docker/mysql/data:/var/lib/mysql
-    ports:
-      - 127.0.0.1:${MYSQL_PORT}:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DB_NAME: ${MYSQL_DB_NAME}
-    container_name: harbors_mysql
