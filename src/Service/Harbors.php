@@ -4,6 +4,7 @@ namespace App\Service;
 
 use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Routing\RouterInterface;
 
 class Harbors
 {
@@ -11,7 +12,7 @@ class Harbors
 
     private string $weatherApiKey;
 
-    public function __construct(private ApiClient $apiClient, string $weatherApiKey)
+    public function __construct(private ApiClient $apiClient, string $weatherApiKey, private RouterInterface $router)
     {
         $this->weatherApiKey = $weatherApiKey;
     }
@@ -29,7 +30,7 @@ class Harbors
                 $harbor['image'] = $harborFromApi['image'];
             }
 
-            $harbor['weather'] = 'todo';
+            $harbor['weather'] = $this->router->generate('harbor_weather', ['harborId' => $harborFromApi['id']]);
 
             $harbors[] = $harbor;
         }
