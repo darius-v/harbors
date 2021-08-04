@@ -13,6 +13,7 @@ init:
 	docker-compose build
 	docker-compose up -d
 	docker-compose exec php composer install
+	docker run node yarn install
 
 build:
 	build/build.sh
