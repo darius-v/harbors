@@ -9,11 +9,11 @@ class Harbors
 {
     private const WEATHER_PROVIDER_DOMAIN = 'https://api.openweathermap.org';
 
-    private ApiClient $apiClient;
+    private string $weatherApiKey;
 
-    public function __construct(ApiClient $apiClient)
+    public function __construct(private ApiClient $apiClient, string $weatherApiKey)
     {
-        $this->apiClient = $apiClient;
+        $this->weatherApiKey = $weatherApiKey;
     }
 
     public function harborsList(): array
@@ -56,7 +56,7 @@ class Harbors
         }
 
         $weather = $this->apiClient->fetch(sprintf(
-            self::WEATHER_PROVIDER_DOMAIN . '/data/2.5/weather?lat=%d&lon=%d&appid=b4b6cf42d49ae20d5a439454b8e19c1c',
+            self::WEATHER_PROVIDER_DOMAIN . '/data/2.5/weather?lat=%d&lon=%d&appid=' . $this->weatherApiKey,
             $harbor['lat'],
             $harbor['lon'],
         ));
