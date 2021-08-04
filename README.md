@@ -8,7 +8,15 @@
 
 ### Run tests
 
-make tests
+`make tests`
+
+### How to enable xdebug
+
+* Uncoment line in docker/php/Dockerfile
+`RUN pecl install xdebug && docker-php-ext-enable xdebug opcache`
+* Uncomment line in docker-compose.yml 
+`- ./docker/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini`
+* run `make init`
 
 ### Various commands
 

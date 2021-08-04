@@ -47,7 +47,11 @@ class HarborController extends AbstractController
      */
     public function map(Harbors $harbors): Response
     {
-        $harbors = $harbors->getForMap();
+        try {
+            $harbors = $harbors->getForMap();
+        } catch (Throwable $e) {
+            return $this->error('Unexpected error');
+        }
 
         return $this->render('map.html.twig', [
             'harbors' => json_encode($harbors),

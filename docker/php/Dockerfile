@@ -15,7 +15,7 @@ RUN docker-php-ext-configure intl
 
 RUN docker-php-ext-install intl zip opcache bcmath sockets
 
-RUN pecl install xdebug && docker-php-ext-enable xdebug opcache
+#RUN pecl install xdebug && docker-php-ext-enable xdebug opcache
 
 RUN echo "opcache.max_accelerated_files = 20000" >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
