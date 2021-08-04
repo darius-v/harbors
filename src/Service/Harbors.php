@@ -30,7 +30,7 @@ class Harbors
                 $harbor['image'] = $harborFromApi['image'];
             }
 
-            $harbor['weather'] = $this->router->generate('harbor_weather', ['harborId' => $harborFromApi['id']]);
+            $harbor['weatherUrl'] = $this->router->generate('harbor_weather', ['harborId' => $harborFromApi['id']]);
 
             $harbors[] = $harbor;
         }
@@ -64,7 +64,7 @@ class Harbors
 
         return [
             'name' => $harbor['name'],
-            'weather' => json_decode($weather, true) ,
+            'weather' => json_decode($weather, true),
             'weather_provider' => self::WEATHER_PROVIDER_DOMAIN,
         ];
     }

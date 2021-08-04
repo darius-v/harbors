@@ -22,4 +22,4 @@ build:
 	build/build.sh
 
 tests:
-	docker-compose exec php php vendor/bin/phpunit
+	docker-compose exec php vendor/bin/phpunit
