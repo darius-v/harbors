@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Service\Harbors;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Throwable;
@@ -39,6 +40,18 @@ class HarborController extends AbstractController
         }
 
         return $this->json($harbor);
+    }
+
+    /**
+     * @Route("/map", name="harbor_map")
+     */
+    public function map(Harbors $harbors): Response
+    {
+        $harbors = $harbors->getForMap();
+
+        return $this->render('map.html.twig', [
+            'harbors' => json_encode($harbors),
+        ]);
     }
 
     private function error(string $error): JsonResponse

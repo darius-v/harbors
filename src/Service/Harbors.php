@@ -38,6 +38,24 @@ class Harbors
         return $harbors;
     }
 
+    public function getForMap(): array
+    {
+        $harborsFromApi = $this->fetchHarbors();
+
+        $harbors = [];
+
+        foreach ($harborsFromApi as $harborFromApi) {
+            $harbor = [];
+            $harbor['name'] = $harborFromApi['name'];
+            $harbor['lat'] = $harborFromApi['lat'];
+            $harbor['lon'] = $harborFromApi['lon'];
+
+            $harbors[] = $harbor;
+        }
+
+        return $harbors;
+    }
+
     #[ArrayShape(['name' => "string", 'weather' => "array", 'weather_provider' => "string"])]
     public function getHarborWeather(string $id): array
     {
