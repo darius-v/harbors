@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "9daf2a78-9ba6-439f-8a41-d4713ae82467",
+		"name": "Harba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://devapi.harba.co/harbors/visible",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://devapi.harba.co/harbors/visible",
+					"protocol": "https",
+					"host": [
+						"devapi",
+						"harba",
+						"co"
+					],
+					"path": [
+						"harbors",
+						"visible"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.openweathermap.org/data/2.5/weather?id=2172797&appid=b4b6cf42d49ae20d5a439454b8e19c1c",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?lat=54.675693&lon=25&appid=b4b6cf42d49ae20d5a439454b8e19c1c",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "54.675693"
+						},
+						{
+							"key": "lon",
+							"value": "25"
+						},
+						{
+							"key": "appid",
+							"value": "b4b6cf42d49ae20d5a439454b8e19c1c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get harbors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/harbor",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"harbor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get harbor by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/harbor/fccf6889-c4c6-4ab0-9bfa-21c54b25d17d",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"harbor",
+						"fccf6889-c4c6-4ab0-9bfa-21c54b25d17d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

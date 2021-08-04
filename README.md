@@ -3,8 +3,8 @@
 ### Project setup
 
 * Run `make init` to initialize project
-
 * Open in browser: http://localhost:8000 .
+* There are api request urls in postman_collection.json, or you can check annotations in HarborController.php
 
 ### Run tests
 

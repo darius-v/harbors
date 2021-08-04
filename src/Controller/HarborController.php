@@ -43,7 +43,7 @@ class HarborController extends AbstractController
     }
 
     /**
-     * @Route("/map", name="harbor_map")
+     * @Route("/", name="harbor_map")
      */
     public function map(Harbors $harbors): Response
     {
