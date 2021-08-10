@@ -1,3 +1,6 @@
+# todo
+* move .env to .env.dist
+
 # Harbors
 
 ### Project setup
